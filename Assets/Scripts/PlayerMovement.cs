@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerMovementScript : MonoBehaviour {
-            /* SerializeField exposes this value to the Editor, but not to other Scripts!
-               It is "pseudo public"
-               HorizontalPlayerAcceleration indicates how fast we accelerate Horizontally */
-            [SerializeField]
-            private float f_horPlayAccel = 5000f;
-            private Rigidbody2D ourRigidbody;
+public class PlayerMovement : MonoBehaviour
+{
+    [SerializeField]
+    private float f_horPlayAccel = 5000f;
+    private Rigidbody2D ourRigidbody;
 
 
     void Start() 

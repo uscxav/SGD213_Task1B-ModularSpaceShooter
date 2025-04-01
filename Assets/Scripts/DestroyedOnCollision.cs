@@ -4,8 +4,7 @@ using System.Collections.Generic;
 
 public enum TagListType
 {
-    Blacklist,
-    Whitelist
+    Blacklist, Whitelist
 }
 
 public class DestroyedOnCollision : MonoBehaviour
@@ -14,8 +13,8 @@ public class DestroyedOnCollision : MonoBehaviour
     [SerializeField]
     private TagListType tagListType = TagListType.Blacklist;
 
-    // A list of tags which we use to determine whether to explode or not
-    // Depending on the tagListType (Blacklist or Whitelist)
+    /* A list of tags which we use to determine whether to explode or not
+     epending on the tagListType (Blacklist or Whitelist) */
     [SerializeField]
     private List<string> tags;
 
@@ -23,14 +22,12 @@ public class DestroyedOnCollision : MonoBehaviour
     {
         bool tagInList = tags.Contains(other.gameObject.tag);
 
-        if (tagListType == TagListType.Blacklist 
-            && tagInList)
+        if (tagListType == TagListType.Blacklist && tagInList)
         {
             // Destroy if it's a Blacklist and the tag IS in the Blacklist
             Destroy(gameObject);
         }
-        else if (tagListType == TagListType.Whitelist 
-            && !tagInList)
+        else if (tagListType == TagListType.Whitelist && !tagInList)
         {
             // Destroy if it's a Whitelist and the tag is NOT in the Whitelist
             Destroy(gameObject);
